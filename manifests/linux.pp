@@ -44,7 +44,7 @@ class firewall::linux (
     'stopped' => false,
   }
 
-  package { $::operatingsystem ? { 'Fedora' => 'iptables-legacy', default => 'iptables'}:
+  package { 'iptables':
     ensure => $pkg_ensure,
   }
 
