@@ -44,7 +44,7 @@ class firewall::linux (
     'stopped' => false,
   }
 
-  package { 'iptables':
+  package { $firewall::iptables_package:
     ensure => $pkg_ensure,
   }
 
