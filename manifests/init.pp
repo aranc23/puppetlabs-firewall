@@ -9,6 +9,9 @@
 # @example
 #   class { 'firewall': }
 #
+# @param iptables_package
+#   iptables base package name
+#
 # @param ensure
 #   Controls the state of the ipv4 iptables service on your system. Valid options: 'running' or 'stopped'.
 #
@@ -31,6 +34,7 @@
 #   Controls whether puppet manages the ebtables package or not. If managed, the package will use the value of pkg_ensure.
 #
 class firewall (
+  String $iptables_package,
   $ensure          = running,
   $ensure_v6       = undef,
   $pkg_ensure      = present,
