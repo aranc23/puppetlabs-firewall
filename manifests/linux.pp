@@ -66,7 +66,7 @@ class firewall::linux (
         package_name    => $package_name,
         service_name    => $service_name,
         service_name_v6 => $service_name_v6,
-        require         => Package['iptables'],
+        require         => Package[$firewall::iptables_package],
       }
     }
     'Debian', 'Ubuntu': {
@@ -75,7 +75,7 @@ class firewall::linux (
         enable       => $enable,
         package_name => $package_name,
         service_name => $service_name,
-        require      => Package['iptables'],
+        require      => Package[$firewall::iptables_package],
       }
     }
     'Archlinux': {
@@ -84,7 +84,7 @@ class firewall::linux (
         enable       => $enable,
         package_name => $package_name,
         service_name => $service_name,
-        require      => Package['iptables'],
+        require      => Package[$firewall::iptables_package],
       }
     }
     'Gentoo': {
@@ -93,7 +93,7 @@ class firewall::linux (
         enable       => $enable,
         package_name => $package_name,
         service_name => $service_name,
-        require      => Package['iptables'],
+        require      => Package[$firewall::iptables_package],
       }
     }
     default: {}
